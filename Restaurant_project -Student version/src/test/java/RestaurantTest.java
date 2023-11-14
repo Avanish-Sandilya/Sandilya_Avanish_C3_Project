@@ -57,9 +57,21 @@ class RestaurantTest {
                 () -> restaurant.removeFromMenu("French fries"));
     }
 
+   //Test case for part 3 of assignment
     @Test
     public void calculate_order_value_should_return_correct_value_for_given_items() throws itemNotFoundException {
-        int expectedOrderValue=1;
-        assertEquals(expectedOrderValue, restaurant.calculateOrderValue(Arrays.asList("Sweet corn soup", "Vegetable lasagne")));
+
+        int sweetCornSoupPrice = 119;
+        int vegetableLasagnePrice = 269;
+
+
+        restaurant.addToMenu("Sweet corn soup", sweetCornSoupPrice);
+        restaurant.addToMenu("Noodles", vegetableLasagnePrice);
+
+
+        int expectedOrderValue = sweetCornSoupPrice + vegetableLasagnePrice;
+
+
+        assertEquals(expectedOrderValue, restaurant.calculateOrderValue(Arrays.asList("Sweet corn soup", "Noodles")));
     }
 }

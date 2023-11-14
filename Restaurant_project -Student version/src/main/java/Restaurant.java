@@ -50,10 +50,19 @@ public class Restaurant {
         menu.remove(itemToBeRemoved);
     }
 
+    //Function for part3 of assignment
     public int calculateOrderValue(List<String> items) throws itemNotFoundException {
         int orderValue = 0;
+        for (String itemName : items) {
+            Item item = findItemByName(itemName);
+            if (item == null) {
+                throw new itemNotFoundException(itemName);
+            }
+            orderValue += item.getPrice();
+        }
         return orderValue;
     }
+
     public void displayDetails(){
         System.out.println("Restaurant:"+ name + "\n"
                 +"Location:"+ location + "\n"
