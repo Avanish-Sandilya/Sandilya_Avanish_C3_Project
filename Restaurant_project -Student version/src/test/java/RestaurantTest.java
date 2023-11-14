@@ -3,6 +3,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 import java.time.LocalTime;
+import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
@@ -54,5 +55,11 @@ class RestaurantTest {
     public void removing_item_that_does_not_exist_should_throw_exception() {
         assertThrows(itemNotFoundException.class,
                 () -> restaurant.removeFromMenu("French fries"));
+    }
+
+    @Test
+    public void calculate_order_value_should_return_correct_value_for_given_items() throws itemNotFoundException {
+        int expectedOrderValue=1;
+        assertEquals(expectedOrderValue, restaurant.calculateOrderValue(Arrays.asList("Sweet corn soup", "Vegetable lasagne")));
     }
 }

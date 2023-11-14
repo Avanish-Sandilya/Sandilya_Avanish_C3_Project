@@ -49,6 +49,11 @@ public class Restaurant {
 
         menu.remove(itemToBeRemoved);
     }
+
+    public int calculateOrderValue(List<String> items) throws itemNotFoundException {
+        int orderValue = 0;
+        return orderValue;
+    }
     public void displayDetails(){
         System.out.println("Restaurant:"+ name + "\n"
                 +"Location:"+ location + "\n"
